@@ -1,0 +1,20 @@
+@use './variables' as *;
+
+:root {
+  --text100: #{$text100};
+  --text200: #{$text200};
+  --text300: #{$text300};
+  --background100: #{$background100};
+  --primary: #{$primary};
+  --secondary: #{$secondary};
+  --border: #{$border};
+  --birneue100: #{$birneue100};
+  --birneue200: #{$birneue200};
+  --birneue300: #{$birneue300};
+  --birneue400: #{$birneue400};
+  --birneue500: #{$birneue500};
+  --birneue600: #{$birneue600};
+  --birneue700: #{$birneue700};
+  --birneue800: #{$birneue800};
+  --birneue900: #{$birneue900};
+}

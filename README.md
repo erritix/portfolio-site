@@ -1,0 +1,1 @@
+pls visit [founder.150ml.lol](https://founder.150ml.lol) or [erritix.qzz.io](erritix.qzz.io)
