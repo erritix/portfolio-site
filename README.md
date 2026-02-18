@@ -1,1 +1,8 @@
-pls visit [founder.150ml.lol](https://founder.150ml.lol) or [erritix.qzz.io](erritix.qzz.io)
+# Portfolio
+
+A simple portfolio with Futuristic Minimalist theme
+
+## Tech Stack
+
+- SvelteKit -> Frontend & Backend
+- Cloudflare Pages -> Deployment Host
