@@ -1,9 +1,9 @@
 import { error } from '@sveltejs/kit';
-import type { RequestHandler } from '../$types';
+import type { RequestHandler } from './$types';
 
 export const GET: RequestHandler = ({ url }) => {
     const min = Number(url.searchParams.get('min') ?? '0');
-    const max = Number(url.searchParams.get('max') ?? '1');
+    const max = Number(url.searchParams.get('max') ?? '100');
 
     const d = max - min;
 

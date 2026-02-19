@@ -1,10 +1,25 @@
 {
-	"name": "portfolio-site",
-	"main": ".svelte-kit/cloudflare/_worker.js",
-	"compatibility_flags": ["nodejs_als"],
-	"compatibility_date": "2026-02-18",
-	"assets": {
-		"binding": "ASSETS",
-		"directory": ".svelte-kit/cloudflare"
-	}
+    "name": "portfolio-site",
+    "main": ".svelte-kit/cloudflare/_worker.js",
+    // "migration_dir": "./wrangMigrate",
+    "compatibility_flags": [
+        "nodejs_als"
+    ],
+    "compatibility_date": "2026-02-18",
+    "assets": {
+        "binding": "ASSETS",
+        "directory": ".svelte-kit/cloudflare"
+    },
+    "d1_databases": [
+        {
+            "binding": "DB",
+            "database_name": "portfolio",
+            "database_id": "3771efee-8d2e-4250-805b-1503d1a672bc",
+        },
+        {
+            "binding": "testDB",
+            "database_name": "testdb",
+            "database_id": "e57c3a94-2e13-4287-9a56-fd5ea91938cb",
+        }
+    ]
 }

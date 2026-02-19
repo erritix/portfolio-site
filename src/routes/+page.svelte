@@ -28,7 +28,9 @@
         justify-content: center;
         gap: 16px;
         min-height: 512px;
-        padding: 64px 128px;
+        padding: 0 64px;
+        margin-bottom: 1024px;
+
         & > * {
             flex: 1 0 0;
             position: relative;
@@ -48,5 +50,21 @@
         flex-direction: column;
         justify-content: center;
         gap: 8px;
+    }
+
+    @media only screen and (max-width: 720px) {
+        .heroSection {
+            flex-direction: column;
+            min-height: 768px;
+            padding: 96px 32px;
+        }
+
+        .visual > * {
+            height: 128px;
+        }
+
+        .texts {
+            justify-content: flex-start;
+        }
     }
 </style>
