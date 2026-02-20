@@ -17,8 +17,8 @@
         class="msgLogs"
         bind:this={msgLogs}
     >
-        {#if !data.results}
-            <span>Be first to message</span>
+        {#if data.results.length == 0}
+            <span>Be first to message!</span>
         {:else}
             {#each data.results as msg (msg.timestamp)}
                 <div class="message">
@@ -36,6 +36,16 @@
         action="?/sendmessage"
         class="msgForm"
     >
+        <label class="labelMsg">
+            Message
+            <input
+                type="text"
+                name="message"
+                maxlength="255"
+                class="inputMsg"
+                required
+            />
+        </label>
         <label class="labelUname">
             Username
             <input
@@ -43,16 +53,9 @@
                 name="username"
                 maxlength="32"
                 value="Anonymous"
-                class="inputUname input"
+                class="inputUname"
             />
         </label>
-        <input
-            type="text"
-            name="message"
-            maxlength="255"
-            class="inputMsg input"
-            required
-        />
         <button class="btnSend">send</button>
     </form>
 </div>
@@ -61,9 +64,15 @@
     .viewBox {
         display: flex;
         flex-direction: column;
+        align-items: center;
         gap: 32px;
-        padding: 64px 128px;
+        padding: 64px 32px;
         font-size: 14px;
+
+        & > * {
+            flex-grow: 1;
+            width: 100%;
+        }
     }
     .msgLogs {
         display: flex;
@@ -75,10 +84,13 @@
 
     .msgForm {
         display: flex;
-        flex-direction: row;
         gap: 8px;
 
-        & .input {
+        & > * {
+            flex-grow: 1;
+        }
+
+        & input {
             font-size: 14px;
             padding: 8px 12px;
             border: 1px solid var(--border);
@@ -86,18 +98,19 @@
             background-color: var(--birneue100);
         }
 
-        & > .labelUname {
+        & > label {
             display: flex;
             flex-direction: column;
             font-size: 14px;
             color: var(--text200);
         }
 
-        & > .inputMsg {
-            width: 512px;
+        & .labelUname {
+            flex: 0 1;
         }
 
         & > .btnSend {
+            flex: 0 0;
             padding: 8px 12px;
             color: var(--background100);
             background: var(--secondary);
@@ -134,6 +147,12 @@
 
         &:hover {
             background: var(--birneue200);
+        }
+    }
+
+    @media only screen and (max-width: 720px) {
+        .msgForm {
+            flex-direction: column;
         }
     }
 </style>

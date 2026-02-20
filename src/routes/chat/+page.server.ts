@@ -4,10 +4,9 @@ import type { Message } from "$lib/types/db"
 import { fail } from "@sveltejs/kit";
 
 export const load: PageServerLoad = async (e) => {
-    const db = requireDB(e.platform?.env.testDB)
+    const db = requireDB(e.platform?.env.DB)
     const stmt = await db
-        .prepare("SELECT * FROM msglog ")
-        // ORDER BY rowid DESC LIMIT 10
+        .prepare("SELECT * FROM msglog")
         .run<Message>()
 
     return stmt
@@ -15,7 +14,7 @@ export const load: PageServerLoad = async (e) => {
 
 export const actions = {
     sendmessage: async (e) => {
-        const db = requireDB(e.platform?.env.testDB)
+        const db = requireDB(e.platform?.env.DB)
         const data = await e.request.formData()
 
         // validation
@@ -28,7 +27,7 @@ export const actions = {
 
         const msgData: Message = {
             sender: String(data.get('username')) || "Anonymous",
-            message: String(data.get('message')) || '',
+            message: String(data.get('message')) || '(error)',
             // optimize the timestamp from miliseconds to seconds
             // sience we didnt need to milisecond accuracy 
             timestamp: Math.floor(Date.now() / 1000)

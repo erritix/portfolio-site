@@ -12,14 +12,15 @@
     },
     "d1_databases": [
         {
-            "binding": "DB",
-            "database_name": "portfolio",
-            "database_id": "3771efee-8d2e-4250-805b-1503d1a672bc",
-        },
-        {
             "binding": "testDB",
             "database_name": "testdb",
-            "database_id": "e57c3a94-2e13-4287-9a56-fd5ea91938cb",
+            "database_id": "e57c3a94-2e13-4287-9a56-fd5ea91938cb"
+        },
+        {
+            "binding": "DB",
+            "database_name": "portfolioDB",
+            "database_id": "3c22381e-6bdb-4acc-9eb6-3a64bbca064b",
+            "remote": true
         }
     ]
 }

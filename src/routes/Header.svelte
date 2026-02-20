@@ -10,6 +10,7 @@
     ];
 
     let innerWidth = $state<number>(1);
+    let isMobile = $derived(innerWidth < 960);
     let menuState = $state<boolean>(false);
 </script>
 
@@ -26,21 +27,29 @@
         />
     </div>
     <div class="navigation">
-        {#if innerWidth > 960}
+        {#if !isMobile}
             {#each navData as data (data.label)}
                 <NavItem {...data} />
             {/each}
         {:else}
             <NavItem
                 label="menu"
+                href="#"
                 onclick={() => (menuState = !menuState)}
             />
         {/if}
     </div>
     <div
-        class="mMenuOverlay"
+        class="mobileNavDrawer"
         class:active={menuState}
-    ></div>
+    >
+        {#each navData as data (data.label)}
+            <NavItem
+                {...data}
+                bind:isMobile
+            />
+        {/each}
+    </div>
 </div>
 
 <style lang="scss">
@@ -59,7 +68,7 @@
         background: var(--background100);
         border: solid var(--border);
         border-width: 1px 0;
-        z-index: 200;
+        z-index: 1;
     }
 
     .titleText {
@@ -91,16 +100,24 @@
         gap: 8px;
     }
 
-    .mMenuOverlay {
+    .mobileNavDrawer {
         position: absolute;
-        height: 0px;
-        background: var(--text100);
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        top: 48px;
+        left: 0px;
+        right: 0px;
+        height: 0vh;
+        padding: 16px 32px;
+        background: var(--background100);
+        opacity: 0;
+        visibility: hidden;
 
         &.active {
-            top: 48px;
-            left: -16px;
-            right: -16px;
             height: 100vh;
+            opacity: 1;
+            visibility: visible;
         }
     }
 </style>

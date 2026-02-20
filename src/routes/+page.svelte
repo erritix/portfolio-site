@@ -1,6 +1,24 @@
 <script lang="ts">
     import terminalBoxes from "$lib/assets/terminalBoxes.svg";
+
+    let x = () => {
+        let current = "";
+
+        console.log("hello");
+
+        document.querySelectorAll("section").forEach((section) => {
+            const sectionTop = section.offsetTop;
+
+            if (scrollY >= sectionTop - 200) {
+                current = section.getAttribute("id") || "";
+            }
+        });
+
+        console.log("Current section:", current);
+    };
 </script>
+
+<svelte:window onscroll={() => console.log("hello")} />
 
 <section
     class="heroSection"

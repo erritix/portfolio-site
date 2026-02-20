@@ -1,25 +1,26 @@
 <script lang="ts">
-    import type { HTMLAttributes } from "svelte/elements";
+    import type { HTMLAnchorAttributes } from "svelte/elements";
 
-    interface Props extends HTMLAttributes<HTMLAnchorElement> {
+    interface Props extends HTMLAnchorAttributes {
         label: string;
         isActive?: boolean;
         isMobile?: boolean;
     }
 
-    let { isActive = $bindable(false), ...props }: Props = $props();
-
-    // function clickHandler() {
-    //     isActive = !isActive;
-    // }
+    let { isActive = $bindable(false), isMobile = $bindable(false), ...props }: Props = $props();
 </script>
 
 <a
     class="navItem"
     class:active={isActive}
+    class:mobile={isMobile}
     {...props}
 >
-    <span>[{props.label}]</span>
+    <div class="label">
+        [{props.label}
+        <div class="spacer"></div>
+        ]
+    </div>
     <div class="highlight"></div>
 </a>
 
@@ -30,30 +31,60 @@
         text-transform: uppercase;
         color: var(--text200);
         text-decoration: none;
-        font-variation-settings: "wght" 400;
+        overflow: visible;
+        clear: both;
+        z-index: 1;
 
         &.active {
-            color: var(--text100);
-            font-variation-settings: "wght" 700;
+            color: var(--background100);
+        }
+
+        &.mobile {
+            font-size: 32px;
+        }
+    }
+
+    .label {
+        display: flex;
+        background: transparent;
+
+        & > .spacer {
+            flex-grow: 0;
         }
     }
 
     .highlight {
         position: absolute;
-        height: 1px;
+        max-height: 1px;
         left: 2px;
         right: 2px;
-        bottom: -1px;
-        opacity: 0;
+        bottom: 0px;
         background: var(--text200);
+        opacity: 0;
+        z-index: -1;
 
         .navItem:hover & {
+            min-height: 1px;
             opacity: 1;
         }
 
         .navItem.active & {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            max-height: none;
+            background: var(--secondary);
             opacity: 1;
-            background: var(--text100);
+        }
+
+        .navItem.mobile.active & {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            max-height: none;
+            opacity: 1;
         }
     }
 </style>
