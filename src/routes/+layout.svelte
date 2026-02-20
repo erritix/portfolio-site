@@ -6,8 +6,6 @@
     import Header from "./Header.svelte";
 
     let { children } = $props();
-    const style = getComputedStyle(document.documentElement);
-    const background100 = style.getPropertyValue("--background100");
 </script>
 
 <svelte:head>
@@ -75,7 +73,7 @@
     <!-- Meta Tags Generated with https://metatags.io -->
     <meta
         name="theme-color"
-        content={background100}
+        content="#D3DAE7FF"
     />
 </svelte:head>
 
