@@ -6,7 +6,16 @@ import { fail } from "@sveltejs/kit";
 export const load: PageServerLoad = async (e) => {
     const db = requireDB(e.platform?.env.DB)
     const stmt = await db
-        .prepare("SELECT * FROM msglog")
+        .prepare(`
+SELECT *
+FROM(
+    SELECT *
+    FROM msglog
+    ORDER BY rowid DESC
+    LIMIT 10
+) 
+ORDER BY timestamp ASC; 
+        `)
         .run<Message>()
 
     return stmt

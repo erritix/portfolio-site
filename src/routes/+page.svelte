@@ -50,7 +50,7 @@
         margin-bottom: 1024px;
 
         & > * {
-            flex: 1 0 0;
+            flex: 1 0;
             position: relative;
             min-width: 1px;
             min-height: 1px;
@@ -61,6 +61,10 @@
         display: flex;
         align-items: center;
         justify-content: center;
+
+        & > * {
+            height: 200px;
+        }
     }
 
     .texts {

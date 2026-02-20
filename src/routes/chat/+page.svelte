@@ -12,6 +12,29 @@
     });
 </script>
 
+<svelte:head>
+    <meta
+        property="og:title"
+        content="Global chatroom on Erritix"
+    />
+    <meta
+        property="og:description"
+        content="This just a Cloudflare D1 SQLDB test"
+    />
+    <meta
+        property="og:url"
+        content="https://erritix.qzz.io/chat"
+    />
+    <meta
+        property="twitter:title"
+        content="Global chatroom on Erritix"
+    />
+    <meta
+        property="twitter:description"
+        content="This just a Cloudflare D1 SQLDB test"
+    />
+</svelte:head>
+
 <div class="viewBox">
     <div
         class="msgLogs"

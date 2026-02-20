@@ -40,6 +40,7 @@ main {
     border-width: 0 1px;
     overflow-y: scroll;
     scrollbar-width: none;
+    scroll-behavior: smooth;
 
     & > section {
         border-bottom: 1px solid $border;

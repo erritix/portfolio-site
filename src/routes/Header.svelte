@@ -18,7 +18,10 @@
 
 <div class="header">
     <div class="title">
-        <span class="titleText">erritix</span>
+        <NavItem
+            label="erritix"
+            href="/"
+        />
     </div>
     <div class="symbol">
         <img
@@ -47,6 +50,7 @@
             <NavItem
                 {...data}
                 bind:isMobile
+                onclick={() => (menuState = !menuState)}
             />
         {/each}
     </div>

@@ -26,12 +26,12 @@
 
 <style lang="scss">
     .navItem {
+        display: block;
         position: relative;
         font-size: 14px;
         text-transform: uppercase;
         color: var(--text200);
         text-decoration: none;
-        overflow: visible;
         clear: both;
         z-index: 1;
 
