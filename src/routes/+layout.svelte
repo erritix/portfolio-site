@@ -17,42 +17,62 @@
     />
     <title>This is Erritix</title>
     <!-- Open Graph Meta Tags -->
+    <!-- Primary Meta Tags -->
+    <title>This is Erritix</title>
     <meta
-        property="og:title"
-        content="Erritix's Site"
+        name="title"
+        content="This is Erritix"
     />
     <meta
-        property="og:description"
-        content="An Erritix's curated digital profile"
+        name="description"
+        content="Erritix's curated digital profile"
     />
-    <meta
-        property="og:image"
-        content="https://erritix.qzz.io/assets/erritixBanner.jpg"
-    />
-    <meta
-        property="og:url"
-        content="https://erritix.qzz.io"
-    />
+
+    <!-- Open Graph / Facebook -->
     <meta
         property="og:type"
         content="website"
     />
     <meta
-        name="twitter:title"
+        property="og:url"
+        content="http://erritix.qzz.io/"
+    />
+    <meta
+        property="og:title"
         content="This is Erritix"
     />
     <meta
-        name="twitter:description"
+        property="og:description"
         content="Erritix's curated digital profile"
     />
     <meta
-        name="twitter:image"
-        content="https://erritix.qzz.io/assets/erritixBanner.jpg"
+        property="og:image"
+        content="https://erritix.qzz.io/assets/erritixBanner.png"
     />
+
+    <!-- X (Twitter) -->
     <meta
-        name="twitter:card"
+        property="twitter:card"
         content="summary_large_image"
     />
+    <meta
+        property="twitter:url"
+        content="http://erritix.qzz.io/"
+    />
+    <meta
+        property="twitter:title"
+        content="This is Erritix"
+    />
+    <meta
+        property="twitter:description"
+        content="Erritix's curated digital profile"
+    />
+    <meta
+        property="twitter:image"
+        content="https://erritix.qzz.io/assets/erritixBanner.png"
+    />
+
+    <!-- Meta Tags Generated with https://metatags.io -->
     <meta
         name="theme-color"
         content={background100}
